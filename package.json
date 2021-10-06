@@ -4,8 +4,10 @@
   "description": "",
   "main": "script.js",
   "dependencies": {
+    "axios": "^0.22.0",
     "redux": "^4.1.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,5 +1,5 @@
-const redux = require("redux");
-const reduxLogger = require('redux-logger');
+const redux = require("redux");  // npm i redux
+const reduxLogger = require('redux-logger'); // npm i redux-logger
 
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
