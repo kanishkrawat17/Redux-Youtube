@@ -1,6 +1,11 @@
 const redux = require("redux");
+const reduxLogger = require('redux-logger');
+
 const createStore = redux.createStore;
 const combineReducers = redux.combineReducers;
+const logger = reduxLogger.createLogger();
+const applyMiddleware = redux.applyMiddleware;
+
 
 const BUY_CAKE = "BUY_CAKE"; // action-name
 const BUY_ICECREAM = "BUY_ICECREAM"; // action-name
@@ -16,7 +21,7 @@ const initialIcecreamState = {
 };
 
 const buyCake = () => {
-  // action creator function for buying cake which retur=rns an object with proprtty type
+  // action creator function for buying cake which returns an object with proprtty type
   return {
     type: BUY_CAKE,
   };
@@ -59,15 +64,12 @@ const rootReducer = combineReducers({
   icecreams: cakeReducer,
 });
 
-const store = createStore(rootReducer);
-console.log("Intial state", store.getState());
+const store = createStore(rootReducer,applyMiddleware(logger));
+// console.log("Intial state", store.getState());
 const unsubscribe = store.subscribe(() => {
   console.log("Updated State", store.getState());
 });
 store.dispatch(buyCake());
-store.dispatch(buyCake());
 
-store.dispatch(buyIcream());
-store.dispatch(buyIcream());
 
 unsubscribe();
