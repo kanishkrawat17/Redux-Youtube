@@ -4,11 +4,8 @@ import { useSelector ,useDispatch} from "react-redux";
 
 
 export const CakeContainer = () => {
-    console.log("cc1");
-    let noOfCakes = useSelector(state => state.noOfCakes);
-    console.log("in");
+    let noOfCakes = useSelector(state => state.cakes.noOfCakes);
     let dispatch  = useDispatch();
-    console.log("cc2");
   return (
     <div>
       <h2>Number of cakes - {noOfCakes}</h2>
