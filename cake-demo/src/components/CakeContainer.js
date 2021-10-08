@@ -10,7 +10,7 @@ export const CakeContainer = () => {
     <div>
       <h2>Number of cakes - {noOfCakes}</h2>
       <button onClick={() => 
-        dispatch({ type: 'BUY_CAKE' })
+        dispatch({ type: 'BUY_CAKE',payload: 1 })
     }> Buy cake</button>
     </div>
   );

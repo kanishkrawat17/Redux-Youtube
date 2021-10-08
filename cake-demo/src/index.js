@@ -7,14 +7,20 @@ import { cakeReducers } from './redux/cake/cakeReducers';
 import { icecreamReducers } from './redux/cake/icecream/icecreamReducers';
 import { applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const logger = createLogger();
+
+
+
+// createlogger basically gives us all the state changes it is applied through middleware
+const logger = createLogger();  
+
 const rootReducer  = combineReducers ({
   cakes : cakeReducers,
   icecreams : icecreamReducers
 }) 
-const store = createStore(rootReducer,applyMiddleware(logger));
-console.log(store.getState())
+const store = createStore(rootReducer, composeWithDevTools( applyMiddleware(logger) )  );
+// console.log(store.getState())
 //creation of store that takes reducer in arguments
 
 // To make our redux-store available to our react application we will use <Provider /> component , it basically makes our
